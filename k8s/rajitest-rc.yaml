@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rajitest
+  namespace: com-att-ocnp-mgmt
+spec:
+  replicas: 1
+  selector:
+    app: rajitest
+  template:
+    metadata:
+      labels:
+        app: rajitest
+    spec:
+      serviceAccount: YOUR
+      containers:
+      - name: rajitest
+        image: ${docker-registry}/${docker-namespace}/rajitest:latest
+        imagePullPolicy: Always
+        ports:
+         - containerPort: 8080

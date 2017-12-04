@@ -1,0 +1,21 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "rajitest",
+         "namespace": "com-att-ocnp-mgmt"
+    },
+    "spec": {
+        "selector": {
+            "app": "rajitest"
+        },
+        "ports": [
+            {
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 8080
+            }
+        ],
+        "type": "NodePort"
+    }
+}
